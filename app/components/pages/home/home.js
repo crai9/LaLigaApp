@@ -2,7 +2,7 @@
 
 angular.module('LaLigaApp.home', ['ngRoute'])
 
-.controller('HomeCtrl', [function() {
+.controller('HomeCtrl', ['$scope', function($scope) {
 
     document.title = "La Liga - Home";
 

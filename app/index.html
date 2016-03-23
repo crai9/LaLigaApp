@@ -8,20 +8,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <base href="/app/">
   <title>La Liga</title>
-  <meta name="description" content="">
+  <meta name="description" content="La Liga Football Application">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="semantic.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/semantic.css">
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="ui fixed inverted menu">
-    <div class="ui container">
+  <div class="ui inverted menu">
+    <div class="ui inverted container">
       <a href="#/home" class="header item">
         <img class="logo" src="images/logo.png">
-        La Liga App
+        {{ appName }}
       </a>
-      <a href="#/home" class="item">Home</a>
-      <a href="#/map" class="item">Map</a>
+      <a ng-class="{ active: isActive('/home')}" href="#/home" class="item">Home</a>
+      <a ng-class="{ active: isActive('/map')}" href="#/map" class="item">Map</a>
+      <a ng-class="{ active: isActive('/teams')}" href="#/teams" class="item">Teams</a>
 
     </div>
   </div>
@@ -42,7 +43,9 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="map/map.js"></script>
-  <script src="home/home.js"></script>
+  <script src="components/pages/map/map.js"></script>
+  <script src="components/pages/home/home.js"></script>
+  <script src="components/services/DataService.js"></script>
+  <script src="components/pages/teams/teams.js"></script>
 </body>
 </html>

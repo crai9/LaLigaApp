@@ -2,7 +2,7 @@
 
 angular.module('LaLigaApp.map', ['ngRoute'])
 
-.controller('MapCtrl', [function() {
+.controller('MapCtrl', ['$scope', 'DataService', function($scope, DataService) {
 
     document.title = "La Liga - Map";
 
