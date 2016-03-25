@@ -1,2 +1,14 @@
 <h1 class="ui header">Map page</h1>
 
+<button ng-click="removeMarkers()">Remove</button>
+<button ng-click="zoomOnMarker()">Zoom</button>
+
+<ui-gmap-google-map control='map.control' center='map.center' zoom='map.zoom'>
+    <ui-gmap-marker ng-repeat="marker in markers"
+            idKey='marker.id'
+            coords='marker.coords'
+            options='marker.options'
+    >
+    </ui-gmap-marker>
+</ui-gmap-google-map>
+

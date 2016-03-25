@@ -6,9 +6,10 @@ var LaLiga = angular.module('LaLigaApp', [
   'LaLigaApp.home',
   'LaLigaApp.map',
   'LaLigaApp.teams',
-  'DataService'
+  'DataService',
+  'uiGmapgoogle-maps'
 ]).
-config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
 
     $routeProvider
       .when('/home', {
@@ -24,6 +25,12 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
         controller: 'TeamsCtrl'
       })
       .otherwise({redirectTo: '/home'});
+
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyC10Fhssn1c_jAV5ohdA_5JkXl1eAgIJTQ',
+        v: '3.23',
+        libraries: 'weather,geometry,visualization'
+    });
 
     $locationProvider.html5Mode(false);
 

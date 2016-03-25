@@ -19,10 +19,18 @@ body {
     margin: 5em 0em 0em;
     padding: 5em 0em;
 }
-@media (min-height: 320px) {
+.angular-google-map-container {
+    height: 600px;
+}
+.angular-google-map-container{
+    border: 10px solid #fff;
+    box-shadow: 0 0 5px #ccc;
+}
+/* @media (min-height: 320px) {
     .ui.footer.segment {
         position: absolute;
         bottom: 0;
         width: 100%;
     }
 }
+*/
