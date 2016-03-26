@@ -12,19 +12,22 @@ var LaLiga = angular.module('LaLigaApp', [
 config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
 
     $routeProvider
-      .when('/home', {
-        templateUrl: 'components/pages/home/home.html',
-        controller: 'HomeCtrl'
-      })
-      .when('/map', {
-        templateUrl: 'components/pages/map/map.html',
-        controller: 'MapCtrl'
-      })
-      .when('/teams', {
-        templateUrl: 'components/pages/teams/teams.html',
-        controller: 'TeamsCtrl'
-      })
-      .otherwise({redirectTo: '/home'});
+        .when('/home', {
+            title: "Home",
+            templateUrl: 'components/pages/home/home.html',
+            controller: 'HomeCtrl'
+        })
+        .when('/map', {
+            title: "Map",
+            templateUrl: 'components/pages/map/map.html',
+            controller: 'MapCtrl'
+        })
+        .when('/teams', {
+            title: "Teams",
+            templateUrl: 'components/pages/teams/teams.html',
+            controller: 'TeamsCtrl'
+        })
+        .otherwise({redirectTo: '/home'});
 
     uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyC10Fhssn1c_jAV5ohdA_5JkXl1eAgIJTQ',
@@ -43,4 +46,8 @@ LaLiga.run(function($rootScope, $location){
     }
 
     $rootScope.appName = "La Liga";
+
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
 });
