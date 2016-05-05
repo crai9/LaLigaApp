@@ -1,0 +1,24 @@
+<h1 class="ui header">Cities</h1>
+
+<div class="ui divided items">
+    <div ng-repeat="city in cities" class="item">
+        <div class="image">
+            <img ng-src="images/{{city.images[0].url}}">
+        </div>
+        <div class="content relative">
+            <a class="header">{{city.city_name}}</a>
+            <div class="meta">
+                <span class="">{{city.images[0].description}}</span>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+            <div class="extra"></div>
+            <div class="item-bottom">
+                <div class="ui right floated button">
+                    <a href="#/map">View on map</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

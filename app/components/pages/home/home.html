@@ -1,1 +1,53 @@
 <h1 class="ui header">Home page</h1>
+
+<h2 class="ui header">Images</h2>
+<div class="ui link cards">
+    <div class="ui card" ng-repeat="image in images">
+        <div class="image">
+            <img ng-src="images/{{image}}">
+        </div>
+        <div class="content">
+            <a class="header"></a>
+        </div>
+    </div>
+</div>
+
+
+<h2 class="ui header">Upcoming Matches</h2>
+
+<div class="ui segments" ng-repeat="fixture in fixtures | limitTo: 3">
+    <div class="ui segment center aligned">
+        <p><b>{{ fixture.date | date:"dd/MM/yyyy 'at' h:mma"}}</b></p>
+    </div>
+    <div class="ui horizontal segments">
+        <div class="ui segment center aligned">
+            <p>{{fixture.homeTeamName}}</p>
+        </div>
+        <div class="ui segment center aligned">
+            <p>{{fixture.awayTeamName}}</p>
+        </div>
+    </div>
+</div>
+
+<h2 class="ui header">Rankings</h2>
+
+<table class="ui striped table">
+    <thead>
+    <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Games Played</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="rank in rankings">
+        <td>{{rank.position}}</td>
+        <td>{{rank.teamName}}</td>
+        <td>{{rank.wins}}</td>
+        <td>{{rank.losses}}</td>
+        <td>{{rank.playedGames}}</td>
+    </tr>
+    </tbody>
+</table>

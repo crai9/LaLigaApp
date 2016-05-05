@@ -52,7 +52,7 @@
 			),	
 			array("city_id" => "8", "city_name" => "A Coruna", "region_id" => "6", "lat" => "43.3650", "long" => "-8.4100",
 				"images" => array(
-					array("image_id" => "43", "description" => "Castillo de San Antón", "url" => "Castillo_de_San_Antón.jpg"),
+					array("image_id" => "43", "description" => "Castillo de San Antón", "url" => "Castillo_de_San_Ant¢n.jpg"),
 					array("image_id" => "44", "description" => "Torre de Hércules", "url" => "Torre_de_Hércules_-_DivesGallaecia (Custom).jpg"),					
 					array("image_id" => "45", "description" => "A Coruna Collage", "url" => "Collage_de_fotos_coruna (Custom).jpg")				
 				)

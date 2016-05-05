@@ -1,3 +1,27 @@
 <h1 class="ui header">Teams</h1>
 
-<div ng-repeat="team in teams">{{team.team_name}}</div>
+<div class="ui divided items">
+    <div ng-repeat="team in teams" class="item">
+        <div class="image">
+            <img ng-src="images/{{team.badge}}">
+        </div>
+        <div class="content relative">
+            <a class="header">{{team.team_name}}</a>
+            <div class="meta">
+                <span class="stadium">{{team.stadium}}</span>
+            </div>
+            <div class="description">
+                <p>{{team.team_name}} is located in the city of {{ team.city_name }}, which is in the region of {{ team.region_name }}.</p>
+            </div>
+            <div class="extra"></div>
+            <div class="item-bottom">
+                <div class="ui right floated button">
+                    <a href="#/map/1">View on map</a>
+                </div>
+                <div class="ui right floated button">
+                    <a href="#/teams/{{ team.team_id }}">View details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

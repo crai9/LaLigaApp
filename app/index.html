@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/semantic.css">
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css">
 </head>
 <body>
   <div class="ui inverted menu">
@@ -22,12 +23,55 @@
       </a>
       <a ng-class="{ active: isActive('/home')}" href="#/home" class="item">Home</a>
       <a ng-class="{ active: isActive('/map')}" href="#/map" class="item">Map</a>
-      <a ng-class="{ active: isActive('/teams')}" href="#/teams" class="item">Teams</a>
+        <div class="ui simple dropdown item" ng-class="{ active2: isActive('/teams') || isActive('/regions') || isActive('/cities') }">
+          Browse
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a ng-class="{ active: isActive('/teams') }" href="#/teams" class="item">Teams</a>
+            <a ng-class="{ active: isActive('/cities') }" href="#/cities" class="item">Cities</a>
+            <a ng-class="{ active: isActive('/regions') }" href="#/regions" class="item">Regions</a>
+          </div>
+        </div>
 
+      <div class="ui search category item right">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search..." ng-blur="changeBlur()" ng-model="search" ng-change="change()">
+          </div>
+        <div ng-class="{ visible : blur }" class="results transition">
+          <div class="category" ng-show="(allResults.teams | limitTo: 3 | filter: {team_name: search}).length > 0">
+            <div class="name">Teams</div>
+            <a class="result" href="#/teams/{{team.team_id}}" ng-repeat="team in allResults.teams | limitTo: 3 | filter: {team_name: search}">
+              <div class="content">
+                <div class="title">{{team.team_name}}</div>
+                <div class="description"></div>
+              </div>
+            </a>
+          </div>
+          <div class="category" ng-show="(allResults.cities | limitTo: 3 | filter: {city_name: search}).length > 0">
+            <div class="name">Cities</div>
+            <a class="result" href="#/cities" ng-repeat="city in allResults.cities | limitTo: 3 | filter: {city_name: search}">
+              <div class="content">
+                <div class="title">{{city.city_name}}</div>
+                <div class="description"></div>
+              </div>
+            </a>
+          </div>
+          <div class="category" ng-show="(allResults.regions | limitTo: 3 | filter: {region_name: search}).length > 0">
+            <div class="name">Regions</div>
+            <a class="result" href="#/regions" ng-repeat="region in allResults.regions | limitTo: 3 | filter: {region_name: search}">
+              <div class="content">
+                <div class="title">{{region.region_name}}</div>
+                <div class="description"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="ui main text container" ng-view></div>
+  <div class="ui main container" ng-view></div>
 
   <div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
@@ -42,13 +86,22 @@
   </div>
   <script src="bower_components/lodash/dist/lodash.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC10Fhssn1c_jAV5ohdA_5JkXl1eAgIJTQ"></script>
   <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
   <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/jquery-1.11.3.min.js"></script>
+  <script src="../node_modules/semantic-ui/dist/semantic.min.js"></script>
   <script src="app.js"></script>
   <script src="components/pages/map/map.js"></script>
   <script src="components/pages/home/home.js"></script>
   <script src="components/services/DataService.js"></script>
+  <script src="components/services/ApiService.js"></script>
   <script src="components/pages/teams/teams.js"></script>
+  <script src="components/pages/cities/cities.js"></script>
+  <script src="components/pages/regions/regions.js"></script>
 </body>
 </html>

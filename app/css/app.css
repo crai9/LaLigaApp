@@ -23,8 +23,43 @@ body {
     height: 600px;
 }
 .angular-google-map-container{
+    margin-top: 10px;
     border: 10px solid #fff;
     box-shadow: 0 0 5px #ccc;
+}
+.no-margin{
+    margin: 0em 0em 0em;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+/*
+
+uncomment to make list buttons attach to bottom of container
+
+.ui.items > .item .item-bottom {*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*background: none;*/
+    /*margin: 0.5rem 0em 0em;*/
+    /*width: 100%;*/
+    /*padding: 0em 0em 0em;*/
+    /*left: 0em;*/
+    /*bottom: 0em;*/
+    /*color: rgba(0, 0, 0, 0.4);*/
+    /*box-shadow: none;*/
+    /*-webkit-transition: color 0.1s ease;*/
+    /*transition: color 0.1s ease;*/
+    /*border-top: none;*/
+/*}*/
+/*.relative{*/
+    /*position: relative;*/
+/*}*/
+
+.ui.inverted.menu .active2.item {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
 }
 /* @media (min-height: 320px) {
     .ui.footer.segment {

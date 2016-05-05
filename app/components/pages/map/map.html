@@ -1,8 +1,20 @@
 <h1 class="ui header">Map page</h1>
+    <div class="ui form">
+        <div class="no-margin fields">
+                Regions:
+                <div class="ui  toggle checkbox">
+                    <input type="checkbox" name="regions" ng-model="controls.regions" ng-change="updateMarkers()">
+                    <label> </label>
+                </div>
+                Cities:
+                <div class="ui toggle checkbox">
+                    <input type="checkbox" name="cities" ng-model="controls.cities" ng-change="updateMarkers()">
+                    <label> </label>
+                </div>
 
-<button ng-click="removeMarkers()">Remove</button>
-<button ng-click="zoomOnMarker()">Zoom</button>
-
+        </div>
+    </div>
+<br>
 <ui-gmap-google-map control='map.control' center='map.center' zoom='map.zoom'>
     <ui-gmap-marker ng-repeat="marker in markers"
             idKey='marker.id'
