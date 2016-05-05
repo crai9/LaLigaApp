@@ -49,7 +49,7 @@
           </div>
           <div class="category" ng-show="(allResults.cities | limitTo: 3 | filter: {city_name: search}).length > 0">
             <div class="name">Cities</div>
-            <a class="result" href="#/cities" ng-repeat="city in allResults.cities | limitTo: 3 | filter: {city_name: search}">
+            <a class="result" href="#/cities/{{city.city_id}}" ng-repeat="city in allResults.cities | limitTo: 3 | filter: {city_name: search}">
               <div class="content">
                 <div class="title">{{city.city_name}}</div>
                 <div class="description"></div>

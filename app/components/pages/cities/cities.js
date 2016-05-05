@@ -11,6 +11,12 @@ angular.module('LaLigaApp.cities', ['ngRoute'])
 
         console.log($scope.cities);
 
+        if($routeParams.id != undefined){
+
+            $scope.city = $scope.cities[$routeParams.id - 1];
+
+        }
+
     });
 
 }]);

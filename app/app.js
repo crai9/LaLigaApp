@@ -50,6 +50,11 @@ config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', fun
             templateUrl: 'components/pages/teams/teamsDetail.html',
             controller: 'TeamsCtrl'
         })
+        .when('/cities/:id', {
+            title: "Cities",
+            templateUrl: 'components/pages/cities/citiesDetail.html',
+            controller: 'CitiesCtrl'
+        })
         .otherwise({redirectTo: '/home'});
 
     uiGmapGoogleMapApiProvider.configure({
@@ -96,9 +101,10 @@ LaLiga.run(function($rootScope, $location, DataService, $filter){
 
     $rootScope.changeBlur = function(){
 
+        //don't hide list before click has registered
         setTimeout(function(){
             $rootScope.blur = false;
-        }, 1000);
+        }, 50);
 
     }
     $rootScope.change = function(){

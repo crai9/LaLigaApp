@@ -4,10 +4,6 @@ angular.module('LaLigaApp.map', ['ngRoute', 'uiGmapgoogle-maps'])
 
 .controller('MapCtrl', ['$scope', 'DataService', '$routeParams', function($scope, DataService, $routeParams) {
 
-    //TODO: Toggle between regions and cities
-    //TODO: Make box appear when marker is click giving options (zoom/show detail)
-    //TODO: Get where map should be focused from the path variable
-
     //$scope.cityId = $routeParams.cityId;
     //$scope.regionId = $routeParams.regionId;
 
@@ -57,6 +53,7 @@ angular.module('LaLigaApp.map', ['ngRoute', 'uiGmapgoogle-maps'])
                     latitude: cities[i].lat,
                     longitude: cities[i].long
                 },
+                link: '#/cities/' + cities[i].city_id,
                 options: {
                     animation: google.maps.Animation.DROP
                 }
@@ -78,6 +75,7 @@ angular.module('LaLigaApp.map', ['ngRoute', 'uiGmapgoogle-maps'])
                     latitude: regions[i].lat,
                     longitude: regions[i].long
                 },
+                link: '#/regions',
                 options: {
                     animation: google.maps.Animation.DROP
                 }
