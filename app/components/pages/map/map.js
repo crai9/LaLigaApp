@@ -38,10 +38,6 @@ angular.module('LaLigaApp.map', ['ngRoute', 'uiGmapgoogle-maps'])
 
     }
 
-    $scope.zoomOnMarker = function(){
-        $scope.map.control.getGMap().setZoom(11);
-    }
-
     DataService.getCities(function(success){
 
         var cities = success.data.cities;
@@ -56,7 +52,8 @@ angular.module('LaLigaApp.map', ['ngRoute', 'uiGmapgoogle-maps'])
                 link: '#/cities/' + cities[i].city_id,
                 options: {
                     animation: google.maps.Animation.DROP
-                }
+                },
+                parent: $scope
             });
         }
 
@@ -78,7 +75,8 @@ angular.module('LaLigaApp.map', ['ngRoute', 'uiGmapgoogle-maps'])
                 link: '#/regions',
                 options: {
                     animation: google.maps.Animation.DROP
-                }
+                },
+                parent: $scope
             });
         }
 

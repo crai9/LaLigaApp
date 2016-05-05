@@ -2,7 +2,7 @@
     <div class="ui form">
         <div class="no-margin fields">
                 Regions:
-                <div class="ui  toggle checkbox">
+                <div class="ui toggle checkbox">
                     <input type="checkbox" name="regions" ng-model="controls.regions" ng-change="updateMarkers()">
                     <label> </label>
                 </div>
@@ -11,7 +11,6 @@
                     <input type="checkbox" name="cities" ng-model="controls.cities" ng-change="updateMarkers()">
                     <label> </label>
                 </div>
-
         </div>
     </div>
 <br>
@@ -22,8 +21,8 @@
             options='marker.options'
     >
         <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-            <a href="{{marker.link}}">View location details</a>
+            <div>
+                <a href="{{marker.link}}">View location details</a>
         </ui-gmap-window>
     </ui-gmap-marker>
 </ui-gmap-google-map>
-
